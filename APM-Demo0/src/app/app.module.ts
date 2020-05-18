@@ -14,16 +14,25 @@ import { MenuComponent } from './home/menu.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { PageNotFoundComponent } from './home/page-not-found.component';
 
+import { StoreModule } from '@ngrx/store';
+
 /* Feature Modules */
 import { UserModule } from './user/user.module';
+import { reducer } from './products/state/product.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule, 
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(ProductData),
     UserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(reducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: true // Restrict extension to log-only mode
+    }),
   ],
   declarations: [
     AppComponent,
