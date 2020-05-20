@@ -1,3 +1,4 @@
+import { EffectsModule } from '@ngrx/effects';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +34,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       maxAge: 25, // Retains last 25 states
       logOnly: true // Restrict extension to log-only mode
     }),
+    EffectsModule.forRoot([])
   ],
   declarations: [
     AppComponent,
